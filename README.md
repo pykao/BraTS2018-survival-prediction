@@ -83,3 +83,4 @@ python predicted_fiber.py --mode train
 python predicted_fiber.py --mode valid
 python predicted_fiber.py --mode test
 ```
+After you run the above three commands, you are able to get three folders named connectivity, connectogram and network_measures in the paths.dsi_studio_path. Within these three folders, you can find three folder named training, validation, and testing which contains all information.
