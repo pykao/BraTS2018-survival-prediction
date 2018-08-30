@@ -28,8 +28,9 @@ pip install nipype,SimpleITK,sklearn,scipy,pandas,csv
 ```
 ## How to Run
 
-### Pre-processing
 First, you need to change the directories in paths.py
+
+### Pre-processing
 
 Then, you run the N4ITK bias correction on training, validation and testing dataset.
 ```
