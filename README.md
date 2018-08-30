@@ -19,10 +19,10 @@ DSI studio (http://dsi-studio.labsolver.org/dsi-studio-download)
 
 ## Required python libraries
 
-nipype, SimpleITK
+nipype, SimpleITK, sklearn, scipy
 
 ```
-pip install nipype,SimpleITK
+pip install nipype,SimpleITK,sklearn,scipy
 ```
 ## How to Run
 
