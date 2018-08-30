@@ -52,7 +52,7 @@ python registerBrain.py --mode test
 ```
 python gt_lesions.py
 ```
-### Create fiber tracts
+### Create the fiber tracts for the ground truth whole tumor region
 
 Please refer to params.txt for the parameter setting.
 
@@ -72,3 +72,7 @@ python predicted_lesions.py --mode train
 python predicted_lesions.py --mode valid
 python predicted_lesions.py --mode test
 ```
+
+## Create the fiber tracts for the predicted whole tumor region
+
+
