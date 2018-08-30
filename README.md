@@ -76,7 +76,7 @@ python predicted_lesions.py --mode valid
 python predicted_lesions.py --mode test
 ```
 
-## Create the fiber tracts for the predicted whole tumor region
+### Create the fiber tracts for the predicted whole tumor region
 
 Please refer to params.txt for the parameter setting.
 
@@ -90,3 +90,5 @@ python predicted_fiber.py --mode valid
 python predicted_fiber.py --mode test
 ```
 After you run the above three commands, you are able to get three folders named connectivity, connectogram and network_measures in the paths.dsi_studio_path. Within these three folders, you can find three folder named training, validation, and testing which contains all information.
+
+## Overall Survival Prediction (Classification)
