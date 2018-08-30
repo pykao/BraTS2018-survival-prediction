@@ -56,7 +56,7 @@ python gt_lesions.py
 
 Please refer to params.txt for the parameter setting.
 
-Move HCP1021 1mm template (HCP1021.1mm.fib.gz) to the dsi_studio_path
+Move HCP1021 1mm template (HCP1021.1mm.fib.gz) to the paths.dsi_studio_path
 
 Change the parameter_id in gt_fiber.py to your own id
 
@@ -77,6 +77,12 @@ python predicted_lesions.py --mode test
 ```
 
 ## Create the fiber tracts for the predicted whole tumor region
+
+Please refer to params.txt for the parameter setting.
+
+Move HCP1021 1mm template (HCP1021.1mm.fib.gz) to the paths.dsi_studio_path
+
+Change the parameter_id in gt_fiber.py to your own id
 
 ```
 python predicted_fiber.py --mode train
