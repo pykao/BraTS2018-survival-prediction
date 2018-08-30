@@ -47,7 +47,7 @@ python registerBrain.py --mode test
 
 ## For Training Dataset with Ground Truth Lesion Labels
 
-### Map the ground truth lesion from subject space to MNI152 space (seg, whole tumor, tumor core, enhancing tumor in MNI152 space)
+### Map the ground truth lesion from subject space to MNI152 space (seg, whole tumor, tumor core, and enhancing tumor in MNI152 space)
 
 ```
 python gt_lesions.py
@@ -62,4 +62,13 @@ Change the parameter_id in gt_fiber.py to your own id
 
 ```
 python gt_fiber.py
+```
+## For Dataset with Predicted Lesion Labels
+
+### Map the predicted lesion from subject space to MNI152 space (predicted_seg, predicted whole tumor, predicted tumor core, and predicted enhancing tumor in MNI152 space)
+
+```
+python predicted_lesions.py --mode train
+python predicted_lesions.py --mode valid
+python predicted_lesions.py --mode test
 ```
