@@ -63,6 +63,9 @@ Change the parameter_id in gt_fiber.py to your own id
 ```
 python gt_fiber.py
 ```
+After you run the above command, you are able to get three folders named connectivity, connectogram and network_measures in the paths.dsi_studio_path. Within these three folders, you can find a folder named gt which contains all information.
+
+
 ## For Dataset with Predicted Lesion Labels
 
 ### Map the predicted lesion from subject space to MNI152 space (predicted_seg, predicted whole tumor, predicted tumor core, and predicted enhancing tumor in MNI152 space)
@@ -75,4 +78,8 @@ python predicted_lesions.py --mode test
 
 ## Create the fiber tracts for the predicted whole tumor region
 
-
+```
+python predicted_fiber.py --mode train
+python predicted_fiber.py --mode valid
+python predicted_fiber.py --mode test
+```
