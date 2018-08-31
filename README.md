@@ -1,7 +1,7 @@
 # Overall Survival Prediction for BraTS2018 Competition
-This repository implements the overall survival prediction task of the paper [Brain Tumor Segmentation and Tractographic Feature Extraction from Structural MR Images for Overall Survival Prediction](https://arxiv.org/abs/1807.07716) which participates in [BraTS2018](https://www.med.upenn.edu/sbia/brats2018/tasks.html) survival prediction challenge.
+This repository implements the overall survival prediction task of the paper [Brain Tumor Segmentation and Tractographic Feature Extraction from Structural MR Images for Overall Survival Prediction](https://www.researchgate.net/publication/326549702_Brain_Tumor_Segmentation_and_Tractographic_Feature_Extraction_from_Structural_MR_Images_for_Overall_Survival_Prediction) which participates in [BraTS2018](https://www.med.upenn.edu/sbia/brats2018/tasks.html) survival prediction challenge.
 
-The BraTS 2018 dataset does not have any diffusion MR images. We utilize the average fiber tracts from HCP 1021 1mm template with predicted lesion maps to generate tractographic feature. Then, we are able to predict the patient's overall survival with this tractographic feature. Please refer to our [paper](https://arxiv.org/abs/1807.07716) if you would like to know more details. 
+The BraTS 2018 dataset does not have any diffusion MR images. We utilize the average fiber tracts from HCP 1021 1mm template with predicted lesion maps to generate tractographic feature. Then, we are able to predict the patient's overall survival with this tractographic feature. Please refer to our [paper](https://www.researchgate.net/publication/326549702_Brain_Tumor_Segmentation_and_Tractographic_Feature_Extraction_from_Structural_MR_Images_for_Overall_Survival_Prediction) if you would like to know more details. 
 
 ## Citation
 
