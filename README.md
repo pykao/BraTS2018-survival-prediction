@@ -1,7 +1,6 @@
 # Overall Survival Prediction for BraTS2018 Competition
-This repository implements the overall survival prediction task of the paper [Brain Tumor Segmentation and Tractographic Feature Extraction from Structural MR Images for Overall Survival Prediction](https://www.researchgate.net/publication/326549702_Brain_Tumor_Segmentation_and_Tractographic_Feature_Extraction_from_Structural_MR_Images_for_Overall_Survival_Prediction) which participates in BraTS2018 survival prediction challenge.
+This repository implements the overall survival prediction task of the paper [Brain Tumor Segmentation and Tractographic Feature Extraction from Structural MR Images for Overall Survival Prediction](https://www.researchgate.net/publication/326549702_Brain_Tumor_Segmentation_and_Tractographic_Feature_Extraction_from_Structural_MR_Images_for_Overall_Survival_Prediction) which participates in [BraTS2018](https://www.med.upenn.edu/sbia/brats2018/tasks.html) survival prediction challenge.
 
-You are able to find more details about BraTS2018 [here](https://www.med.upenn.edu/sbia/brats2018/tasks.html)
 
 ## Citation
 
