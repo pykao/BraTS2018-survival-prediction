@@ -5,7 +5,7 @@ You are able to find more details about BraTS2018 [here](https://www.med.upenn.e
 
 ## Citation
 
-The system was initially developed for the overall survival prediction of brain tumor patients. It was employed for our research presented in [1], where the tractography features are extracted from structural MR images and we are able to predict the patients overall survival by using a support vector machine(SVM). If the use of the software positively influences your endeavours, please cite [1].
+The system was initially developed for the overall survival prediction of brain tumor patients. It was employed for our research presented in [1], where the tractographic features are extracted from structural MR images. We are able to predict the patients overall survival by using these tractographic features with a support vector machine(SVM). If the use of the software or the idea of the paper positively influences your endeavours, please cite [1].
 
 [1] Kao, Po-Yu, Thuyen Ngo, Angela Zhang, Jefferson Chen, and B. S. Manjunath. "Brain Tumor Segmentation and Tractographic Feature Extraction from Structural MR Images for Overall Survival Prediction." arXiv preprint arXiv:1807.07716 (2018).
 
