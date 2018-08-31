@@ -103,3 +103,14 @@ python predicted_fiber.py --mode test
 After you run the above three commands, you are able to get three folders named connectivity, connectogram and network_measures in the paths.dsi_studio_path. Within these three folders, you can find three folder named training, validation, and testing which contains all information.
 
 ## Overall Survival Prediction (Classification)
+
+For the overall survival prediction task, we are able to classify the brain tumor patients into three groups including long-survivors (e.g., >15 months), short-survivors (e.g., <10 months), and mid-survivors (e.g. between 10 and 15 months)
+
+For using ground truth lesions for training set
+```
+python classify_using_connectivity_matrix.py --mode gt
+```
+For using predicted lesions for training set
+```
+python classify_using_connectivity_matrix.py --mode predicted
+```
