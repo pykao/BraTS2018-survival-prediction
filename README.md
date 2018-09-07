@@ -21,11 +21,11 @@ DSI studio (http://dsi-studio.labsolver.org/dsi-studio-download)
 
 ## Required Atlases
 
-1. MNI152 T1 1mm brain ('/usr/share/fsl/data/standard/MNI152_T1_1mm_brain.nii.gz')
+1. MNI152 T1 1mm brain (/usr/share/fsl/data/standard/MNI152_T1_1mm_brain.nii.gz)
 
 2. HCP1021 1mm template (https://pitt.app.box.com/v/HCP1021-1mm)
 
-3. AAL Atlas ('~/dsistudio/dsi_studio_64/atlas/aal.nii.gz')
+3. AAL Atlas (~/dsistudio/dsi_studio_64/atlas/aal.nii.gz)
 
 
 ## Required python libraries
@@ -37,7 +37,7 @@ pip install nipype,SimpleITK,sklearn,scipy,pandas,csv
 ```
 ## How to Run
 
-First, you need to change the directories in paths.py
+First, you need to change the directories in `paths.py`
 
 ### Pre-processing
 
