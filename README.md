@@ -25,7 +25,8 @@ DSI studio (http://dsi-studio.labsolver.org/dsi-studio-download)
 
 2. HCP1021 1mm template (https://pitt.app.box.com/v/HCP1021-1mm)
 
-3. AAL Atlas ('~/dsistudio/dsi_studio_64/atlas/aal.nii.gz)
+3. AAL Atlas ('~/dsistudio/dsi_studio_64/atlas/aal.nii.gz')
+
 
 ## Required python libraries
 
