@@ -32,10 +32,10 @@ DSI studio (http://dsi-studio.labsolver.org/dsi-studio-download)
 
 ## Required python libraries
 
-nipype, SimpleITK, sklearn, scipy, pandas, csv
+nipype, SimpleITK, sklearn, scipy, pandas, csv, natsort
 
 ```
-pip install nipype,SimpleITK,sklearn,scipy,pandas,csv
+pip install nipype,SimpleITK,sklearn,scipy,pandas,csv,natsort
 ```
 ## How to Run
 
