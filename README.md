@@ -111,7 +111,7 @@ For the overall survival prediction task, we are able to classify the brain tumo
 
 ### For using ground truth lesions for training set
 ```
-python classify_using_connectivity_matrix.py --mode gt
+python classify_using_tractographic_feature.py --mode gt
 ```
 Result:
 
@@ -119,7 +119,7 @@ Best Scores of weighted tractographic features  - Using SVM - Accuracy: 0.6965 (
 
 ### For using predicted lesions for training set
 ```
-python classify_using_connectivity_matrix.py --mode predicted
+python classify_using_tractographic_feature.py --mode predicted
 ```
 
 Result:
