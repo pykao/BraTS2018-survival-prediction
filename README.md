@@ -109,11 +109,19 @@ After you run the above three commands, you are able to get three folders named 
 
 For the overall survival prediction task, we are able to classify the brain tumor patients into three groups including long-survivors (e.g., >15 months), short-survivors (e.g., <10 months), and mid-survivors (e.g. between 10 and 15 months)
 
-For using ground truth lesions for training set
+### For using ground truth lesions for training set
 ```
 python classify_using_connectivity_matrix.py --mode gt
 ```
-For using predicted lesions for training set
+Result:
+
+Best Scores of Weighted connectivity matrix  - Using SVM - Accuracy: 0.6965 (+/- 0.1228)
+
+### For using predicted lesions for training set
 ```
 python classify_using_connectivity_matrix.py --mode predicted
 ```
+
+Result:
+
+Best Scores of Weighted connectivity matrix  - Using SVM - Accuracy: 0.6315 (+/- 0.1323)
