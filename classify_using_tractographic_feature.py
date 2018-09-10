@@ -402,7 +402,7 @@ for train_index, test_index in rskf.split(X_rfecv, y):
 
 
 svm_accuracy, svm_std = np.mean(scores_rskf), np.std(scores_rskf)
-logging.info("Best Scores of Weighted connectivity matrix  - Using SVM - Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy, svm_std))
+logging.info("Best Scores of weighted tractographic features  - Using SVM - Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy, svm_std))
 
 y_valid_pred = np.argmax(y_valid_prob, axis=1)
 y_valid_pred_days = np.zeros(y_valid_pred.shape)
