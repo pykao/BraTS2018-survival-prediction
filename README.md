@@ -3,6 +3,8 @@ This repository implements the overall survival prediction task of the paper [Br
 
 The BraTS 2018 dataset does not have any diffusion MR images. We utilize the average fiber tracts from HCP 1021 1mm template with predicted lesion maps to generate tractographic feature. Then, we are able to predict the patient's overall survival with this tractographic feature. Please refer to our [paper](https://www.researchgate.net/publication/326549702_Brain_Tumor_Segmentation_and_Tractographic_Feature_Extraction_from_Structural_MR_Images_for_Overall_Survival_Prediction) if you would like to know more details. 
 
+**Our proposed tractographic feature has achieved the classification accuracy of 69.69% with 1000-times repeated stratified 5-folds cross validation on BraTS2018 training dataset.**
+
 ## Citation
 
 The system was initially developed for the overall survival prediction task for patients with brain tumor. It was employed for our research presented in [1], where the tractographic features are extracted from structural MR images. We are able to predict the patients overall survival by using these tractographic features with a support vector machine(SVM). If the use of the software or the idea of the paper positively influences your endeavours, please cite [1].
@@ -25,7 +27,7 @@ DSI studio (http://dsi-studio.labsolver.org/dsi-studio-download)
 
 2. HCP1021 1mm template (https://pitt.app.box.com/v/HCP1021-1mm)
 
-3. AAL Atlas (~/dsistudio/dsi_studio_64/atlas/aal.nii.gz)
+3. AAL Atlas (/PATH_TO_DSISTUDIO/dsi_studio_64/atlas/aal.nii.gz)
 
 
 ## Required python libraries
