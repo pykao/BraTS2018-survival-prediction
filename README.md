@@ -115,7 +115,7 @@ python classify_using_connectivity_matrix.py --mode gt
 ```
 Result:
 
-Best Scores of Weighted connectivity matrix  - Using SVM - Accuracy: 0.6965 (+/- 0.1228)
+Best Scores of weighted tractographic features  - Using SVM - Accuracy: 0.6965 (+/- 0.1228)
 
 ### For using predicted lesions for training set
 ```
@@ -124,4 +124,4 @@ python classify_using_connectivity_matrix.py --mode predicted
 
 Result:
 
-Best Scores of Weighted connectivity matrix  - Using SVM - Accuracy: 0.6315 (+/- 0.1323)
+Best Scores of weighted tractographic features  - Using SVM - Accuracy: 0.6315 (+/- 0.1323)
