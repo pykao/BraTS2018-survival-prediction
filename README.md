@@ -68,7 +68,22 @@ python gt_lesions.py
 ```
 ### Create the fiber tracts for the ground truth whole tumor region
 
-Please refer to params.txt for the parameter setting.
+For the parameter setting:
+
+fa_threshold=0.159581
+turning_angle=90
+step_size=0.5
+smoothing=0.5
+min_length=3
+max_length=500
+tracking_method=0
+initial direction=0
+interpolation=0
+voxelwise=0
+default_otsu=0.6
+tip_iteration=0
+fiber_count=1000000
+thread_count=8
 
 Move HCP1021 1mm template (HCP1021.1mm.fib.gz) to the paths.dsi_studio_path
 
