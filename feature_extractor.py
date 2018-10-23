@@ -243,34 +243,3 @@ def get_weighted_connectivity_feature_vectors_train(dsi_studio_path=paths.dsi_st
         W_nrm_end_histogram_features[idx, :] = np.multiply(np.sum(W_nrm_end, axis=0), lesion_weights)
         W_bin_end_histogram_features[idx, :] = np.multiply(np.sum(W_bin_end, axis=0), lesion_weights)
     return pat_names, gt, W_dsi_pass_histogram_features, W_nrm_pass_histogram_features, W_bin_pass_histogram_features, W_dsi_end_histogram_features, W_nrm_end_histogram_features, W_bin_end_histogram_features
-'''
-def extract_gt_age():
-    ''' extract the subject's survival day and age'''
-    gt = np.zeros((59,2), dtype = np.float32)
-    age_features = np.zeros((59,1), dtype = np.float32)
-    survival_dataset = utils.load_survival_training_dataset()
-    for idx, pat_name in enumerate(survival_dataset.keys()):
-        subject_age = float(survival_dataset[pat_name]['age'])
-        survival_days = int(survival_dataset[pat_name]['survival'])
-    
-
-        # get the number of subjects in different survival period
-        if int(survival_dataset[pat_name]['survival']) < 305:
-            #period = 'Short'
-            gt[idx, 0] = 0
-            gt[idx, 1] = survival_days
-            #short_period += 1 
-        # should be 454 or 456.25
-        elif int(survival_dataset[pat_name]['survival']) > 456:
-            #period = 'Long'
-            gt[idx, 0] = 2
-            gt[idx, 1] = survival_days
-            #long_period += 1
-        else:
-            #period = 'Medium'
-            gt[idx, 0] = 1
-            gt[idx, 1] = survival_days
-            #medium_period += 1
-        age_features[idx] = subject_age
-    return gt, age_features, ['age']
-'''
