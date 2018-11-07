@@ -15,6 +15,8 @@ from sklearn.feature_selection import RFECV
 from sklearn import svm
 from sklearn.calibration import CalibratedClassifierCV
 
+import matplotlib.pyplot as plt
+
 import paths
 import utils
 
@@ -126,8 +128,8 @@ selected_normalized_W_bin_pass_histogram_features_test = sel.transform(normalize
 n_splits = 5
 n_repeats = 1000
 rskf = RepeatedStratifiedKFold(n_splits=n_splits, n_repeats=n_repeats, random_state=36851234)
-scores_rskf = np.zeros(n_splits*n_repeats,dtype=np.float32)
-
+scores_rskf_valid = np.zeros(n_splits*n_repeats,dtype=np.float32)
+scores_rskf_train = np.zeros(n_splits*n_repeats,dtype=np.float32)
 
 X = selected_normalized_W_bin_pass_histogram_features
 # ground truth for classification task
@@ -138,7 +140,7 @@ y_valid_prob = np.zeros((28, 3), np.float64)
 X_test = selected_normalized_W_bin_pass_histogram_features_test
 y_test_prob = np.zeros((77, 3), np.float64)
 
-estimator=svm.LinearSVC()
+estimator=svm.LinearSVC(max_iter=3000)
 rfecv = RFECV(estimator, step=1, cv=rskf, scoring='accuracy', n_jobs = -1)
 rfecv.fit(X, y)
 X_rfecv = rfecv.transform(X)
@@ -158,10 +160,12 @@ for train_index, test_index in rskf.split(X_rfecv, y):
 	X_train, X_test = X_rfecv[train_index], X_rfecv[test_index]
 	y_train, y_test = y[train_index], y[test_index]
 	# SVM classifier
-	clf = svm.LinearSVC()
+	clf = svm.LinearSVC(max_iter=3000)
 	clf.fit(X_train, y_train)
 	accuracy = clf.score(X_test, y_test)
-	scores_rskf[idx] = accuracy
+	scores_rskf_valid[idx] = accuracy
+	scores_rskf_train[idx] = clf.score(X_train, y_train)
+
 	idx += 1
 
 	prob_clf = CalibratedClassifierCV(base_estimator=clf, cv='prefit')
@@ -171,10 +175,18 @@ for train_index, test_index in rskf.split(X_rfecv, y):
 	y_t_prob = prob_clf.predict_proba(X_test_rfecv)
 	y_test_prob += y_t_prob
 
+# ======= Plot ======== #
 
+t = np.arange(0, n_splits*n_repeats)
 
-svm_accuracy, svm_std = np.mean(scores_rskf), np.std(scores_rskf)
-logging.info("Best Scores of weighted tractographic features  - Using SVM - Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy, svm_std))
+plt.plot(t, scores_rskf_train, 'r-', scores_rskf_valid, 'b-')
+plt.show()
+
+svm_accuracy_train, svm_std_train = np.mean(scores_rskf_train), np.std(scores_rskf_train)
+svm_accuracy_valid, svm_std_valid = np.mean(scores_rskf_valid), np.std(scores_rskf_valid)
+logging.info("Best Scores of weighted tractographic features  - Using SVM - Training Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy_train, svm_std_train))
+logging.info("Best Scores of weighted tractographic features  - Using SVM - Validation Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy_valid, svm_std_valid))
+
 
 y_valid_pred = np.argmax(y_valid_prob, axis=1)
 y_valid_pred_days = np.zeros(y_valid_pred.shape)
