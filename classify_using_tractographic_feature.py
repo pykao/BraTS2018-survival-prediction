@@ -14,6 +14,7 @@ from sklearn.feature_selection import VarianceThreshold
 from sklearn.feature_selection import RFECV
 from sklearn import svm
 from sklearn.calibration import CalibratedClassifierCV
+from sklearn.ensemble import RandomForestClassifier
 
 import matplotlib.pyplot as plt
 
@@ -140,7 +141,8 @@ y_valid_prob = np.zeros((28, 3), np.float64)
 X_test = selected_normalized_W_bin_pass_histogram_features_test
 y_test_prob = np.zeros((77, 3), np.float64)
 
-estimator=svm.LinearSVC(max_iter=3000)
+estimator=svm.LinearSVC(C=1,max_iter=3000)
+#estimator = RandomForestClassifier(n_estimators=100)
 rfecv = RFECV(estimator, step=1, cv=rskf, scoring='accuracy', n_jobs = -1)
 rfecv.fit(X, y)
 X_rfecv = rfecv.transform(X)
@@ -152,21 +154,23 @@ assert(X_valid_rfecv.shape[0] == 28)
 assert(X_test_rfecv.shape[0] == 77)
 
 
-logging.info('SVM Classifier, Optimal number of features: %d' % X_rfecv.shape[1])
+logging.info('RF Classifier, Optimal number of features: %d' % X_rfecv.shape[1])
+#logging.info('SVM Classifier, Optimal number of features: %d' % X_rfecv.shape[1])
 
 idx = 0
 for train_index, test_index in rskf.split(X_rfecv, y):
-
-	X_train, X_test = X_rfecv[train_index], X_rfecv[test_index]
-	y_train, y_test = y[train_index], y[test_index]
-	# SVM classifier
-	clf = svm.LinearSVC(max_iter=3000)
-	clf.fit(X_train, y_train)
-	accuracy = clf.score(X_test, y_test)
-	scores_rskf_valid[idx] = accuracy
-	scores_rskf_train[idx] = clf.score(X_train, y_train)
-
-	idx += 1
+    X_train, X_test = X_rfecv[train_index], X_rfecv[test_index]
+    y_train, y_test = y[train_index], y[test_index]
+    # SVM classifier
+    clf = svm.LinearSVC(C=1, max_iter=3000)
+    # Random Forest Classifier
+    #clf = RandomForestClassifier(n_estimators=100)
+    clf.fit(X_train, y_train)
+    accuracy = clf.score(X_test, y_test)
+    scores_rskf_valid[idx] = accuracy
+    scores_rskf_train[idx] = clf.score(X_train, y_train)
+    
+    idx += 1
 
 	prob_clf = CalibratedClassifierCV(base_estimator=clf, cv='prefit')
 	prob_clf.fit(X_train, y_train)
@@ -177,16 +181,15 @@ for train_index, test_index in rskf.split(X_rfecv, y):
 
 # ======= Plot ======== #
 
-t = np.arange(0, n_splits*n_repeats)
+#t = np.arange(0, n_splits*n_repeats)
 
-plt.plot(t, scores_rskf_train, 'r-', scores_rskf_valid, 'b-')
-plt.show()
+#plt.plot(t, scores_rskf_train, 'r-', scores_rskf_valid, 'b-')
+#plt.show()
 
-svm_accuracy_train, svm_std_train = np.mean(scores_rskf_train), np.std(scores_rskf_train)
+#svm_accuracy_train, svm_std_train = np.mean(scores_rskf_train), np.std(scores_rskf_train)
 svm_accuracy_valid, svm_std_valid = np.mean(scores_rskf_valid), np.std(scores_rskf_valid)
-logging.info("Best Scores of weighted tractographic features  - Using SVM - Training Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy_train, svm_std_train))
+#logging.info("Best Scores of weighted tractographic features  - Using SVM - Training Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy_train, svm_std_train))
 logging.info("Best Scores of weighted tractographic features  - Using SVM - Validation Accuracy: %0.4f (+/- %0.4f)" %(svm_accuracy_valid, svm_std_valid))
-
 
 y_valid_pred = np.argmax(y_valid_prob, axis=1)
 y_valid_pred_days = np.zeros(y_valid_pred.shape)
