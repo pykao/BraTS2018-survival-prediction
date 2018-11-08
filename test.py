@@ -1,3 +1,0 @@
-from feature_extractor import extract_gt_age, extract_volumetric_features
-
-extract_volumetric_features()
