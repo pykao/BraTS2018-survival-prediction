@@ -126,7 +126,7 @@ selected_normalized_W_bin_pass_histogram_features_test = sel.transform(normalize
 
 # five fold cross-validation
 # repeat 1000 times
-n_splits = 10
+n_splits = 5
 n_repeats = 1000
 rskf = RepeatedStratifiedKFold(n_splits=n_splits, n_repeats=n_repeats, random_state=36851234)
 scores_rskf_valid = np.zeros(n_splits*n_repeats,dtype=np.float32)
